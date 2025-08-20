@@ -117,8 +117,8 @@
               localStorage.setItem("savedCode", code);
 
               // 👇 أهم سطر: استدعاء الأكتيفيتي من داخل التطبيق
-              if (window.Android && Android.openFfff) {
-                Android.openFfff();
+              if (window.Android && Android.openTty) {
+                Android.openTty();
               } else {
                 // احتياطي لو بتجربها في متصفح
                 alert("تم الدخول (تجربة ويب). افتح التطبيق لتنتقل للأكتيفيتي.");
@@ -146,8 +146,8 @@
               document.getElementById("status").className = "success";
 
               // برضه لو فاتحها من جوه التطبيق هنفتح الأكتيفيتي
-              if (window.Android && Android.openFfff) {
-                Android.openFfff();
+              if (window.Android && Android.openTty) {
+                Android.openTty();
               }
             }
           }

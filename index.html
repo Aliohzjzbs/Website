@@ -59,6 +59,7 @@
   </div>
 
   <script>
+    // Firebase Config - مشروع alio-6eb47
     const firebaseConfig = {
       apiKey: "AIzaSyDsTkCfbUJK3bnV4GI0caSHE8XOTggnnYI",
       authDomain: "alio-6eb47.firebaseapp.com",
@@ -114,7 +115,14 @@
               status.className = "success";
               db.ref("codes/" + key).update({ deviceId: deviceId });
               localStorage.setItem("savedCode", code);
-              // window.location.href = "FfffActivity.java"; // صفحة التطبيق بعد الدخول
+
+              // 👇 أهم سطر: استدعاء الأكتيفيتي من داخل التطبيق
+              if (window.Android && Android.openFfff) {
+                Android.openFfff();
+              } else {
+                // احتياطي لو بتجربها في متصفح
+                alert("تم الدخول (تجربة ويب). افتح التطبيق لتنتقل للأكتيفيتي.");
+              }
             }
           }
         });
@@ -136,7 +144,11 @@
             if (data.expire > now) {
               document.getElementById("status").textContent = "✅ تم تسجيل الدخول تلقائياً.";
               document.getElementById("status").className = "success";
-              // window.location.href = "FfffActivity.java";
+
+              // برضه لو فاتحها من جوه التطبيق هنفتح الأكتيفيتي
+              if (window.Android && Android.openFfff) {
+                Android.openFfff();
+              }
             }
           }
         });
